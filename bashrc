@@ -38,7 +38,8 @@ VISUAL="vim"
 
 function wdext {
 if grep -qs '/media/wdext ' /proc/mounts; then
-    echo "wdext already mounted"
+    read -p "wdext already mounted... unmount? [N/y]"
+    [ "$REPLY" == "y" ] && sudo umount /media/wdext
 else
     echo "mounting..."
     sudo mount //rachael/wdext /media/wdext -o credentials=/etc/samba/cifs

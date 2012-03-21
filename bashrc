@@ -8,9 +8,6 @@
 #
 . ~/.bash/private
 
-# colors
-. ~/.bash/colors
-
 # Generic Aliases
 #
 alias ls='ls --color=auto'

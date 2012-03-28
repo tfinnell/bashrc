@@ -50,3 +50,4 @@ map <F10> :source ~/.vimrc<CR>
 map <F12> :NERDTreeToggle<CR>
 
 nnoremap <LEADER>F :set expandtab<CR>:retab!<CR>:%s/\s\+$//<CR>:let @/=''<CR>
+nmap <LEADER>m :w<CR>:make<CR>:cw<CR>

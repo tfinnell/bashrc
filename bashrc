@@ -10,6 +10,8 @@ then
     . ~/.bash/private
 fi
 
+. /usr/share/bash-completion/completions/git
+
 # Generic Aliases
 #
 alias ls='ls --color=auto'

@@ -1,5 +1,4 @@
 set nocompatible
-set t_Co=256
 set number
 set numberwidth=3
 set hlsearch

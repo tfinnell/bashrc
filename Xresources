@@ -5,6 +5,8 @@ urxvt.foreground        : white
 urxvt.internalBorder    : 0
 urxvt.externalBorder    : 0
 urxvt.font              : xft:Droid Sans Mono:size=10
+urxvt.italicFont        : xft:Droid Sans Mono:italic:size=10
+urxvt.boldFont          : xft:Droid Sans Mono:bold:size=10
 urxvt.perl-ext-common   : default,matcher
 urxvt.urlLauncher       : firefox
 urxvt.matcher.button    : 2

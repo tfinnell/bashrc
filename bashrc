@@ -10,8 +10,6 @@ then
     . ~/.bash/private
 fi
 
-. /usr/share/bash-completion/completions/git
-
 # Generic Aliases
 #
 alias ls='ls --color=auto'
@@ -21,6 +19,12 @@ alias tmux='tmux -2'
 alias p='pushd'
 alias o='popd'
 alias d='dirs -v'
+
+# add ~/bin to path if exists
+if [ -d ~/bin ]
+then
+    PATH=$PATH:~/bin
+fi
 
 # alias and add git-achievements to path if the repo exists
 if [ -d ~/git/git-achievements ]
@@ -37,15 +41,27 @@ fi
 # Prompts
 #
 case $TERM in
-    rxvt-unicode-256color) PS1='\[\e[1;30m\][\[\e[0;34m\]\h\[\e[1;30m\]:\[\e[0;35m\]\w\[\e[1;30m\]] $(__git_ps1 "\[\e[1;30m\](\[\e[0;31m\]%s\[\e[1;30m\])")\n\[\e[1;30m\]\$\[\e[0m\] ' ;;
-    screen-256color) PS1='\[\e[1;30m\][\[\e[0;34m\]\h\[\e[1;30m\]:\[\e[0;35m\]\w\[\e[1;30m\]] $(__git_ps1 "\[\e[1;30m\](\[\e[0;31m\]%s\[\e[1;30m\])")\n\[\e[1;30m\]\$\[\e[0m\] ' ;;
-    *) PS1='[\u@\h \W]\n\$ ' ;;
+#    rxvt-unicode-256color) PS1='\[\e[1;30m\][\[\e[0;34m\]\h\[\e[1;30m\]:\[\e[0;35m\]\w\[\e[1;30m\]] $(__git_ps1 "\[\e[1;30m\](\[\e[0;31m\]%s\[\e[1;30m\])")\n\[\e[1;30m\]\$\[\e[0m\] ' ;;
+#    screen-256color) PS1='\[\e[1;30m\][\[\e[0;34m\]\h\[\e[1;30m\]:\[\e[0;35m\]\w\[\e[1;30m\]] $(__git_ps1 "\[\e[1;30m\](\[\e[0;31m\]%s\[\e[1;30m\])")\n\[\e[1;30m\]\$\[\e[0m\] ' ;;
+    rxvt-unicode-256color) PS1='\[\e[0;32m\]\u@\H:\w $(__git_ps1 "» %s")\n\$\[\e[0m\] ' ;;
+    screen-256color) PS1='\[\e[0;32m\]\u@\H:\w $(__git_ps1 "» %s")\n\$\[\e[0m\] ' ;;
+    *) PS1='\u@\H:\W\n\$ ' ;;
 esac
 
-# add to path if hadoop is in /opts
-if [ -d ~/bin:/opt/hadoop-1.0.1/bin ]
+if [ -d ~/bin ]
 then
-    PATH=$PATH:~/bin:/opt/hadoop-1.0.1/bin
+    PATH=$PATH:$HOME/bin
+fi
+
+if [ -d $HOME/.cabal/bin ]
+then
+    PATH=$PATH:$HOME/.cabal/bin
+fi
+
+# add to path if hadoop is in /opts
+if [ -d /opt/hadoop-1.0.1/bin ]
+then
+    PATH=$PATH:/opt/hadoop-1.0.1/bin
 fi
 
 EDITOR="vim"
